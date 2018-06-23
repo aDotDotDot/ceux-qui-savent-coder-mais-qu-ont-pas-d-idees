@@ -154,22 +154,22 @@ try :
                 if message.author.top_role.name == "VilainPasBeau" :
                     await client.remove_roles(message.author, discord.utils.get(message.server.roles, name='VilainPasBeau'))
                     
-                if match(r"(?i)^ah?\W*$", msg) :
+                if match(r"(?i)^ah?\W*$", msg) and not isTG() :
                     await client.send_message(message.channel, 'tchoum')
 
-                if match(r"(?i)^[kq]u?oi?\W*$", msg) :
+                if match(r"(?i)^[kq]u?oi?\W*$", msg) and not isTG() :
                     await client.send_message(message.channel, 'ffeur')
 
-                if match(r"(?i)^lol\W*$", msg) :
+                if match(r"(?i)^lol\W*$", msg) and not isTG() :
                     await client.send_message(message.channel, 'ita')
 
-                if match(r"(?i)^hein\W*$", msg):
+                if match(r"(?i)^hein\W*$", msg) and not isTG() :
                   await client.send_message(message.channel, 'deux')
 
-                if match(r"(?i)^trois\W*$", msg):
+                if match(r"(?i)^trois\W*$", msg) and not isTG():
                   await client.send_message(message.channel, 'soleil')
 
-                if match(r"(?i)^oui\W*$", msg):
+                if match(r"(?i)^oui\W*$", msg) and not isTG():
                   await client.send_message(message.channel, 'stiti')
 
                 if client.user.mentioned_in(message) :
@@ -840,7 +840,9 @@ try :
                         except OverflowError : size += 1
                       await client.send_message(message.channel, txt)
                   except : await client.send_message(message.channel, "Une erreur s'est produite, vérifiez vos arguments.")
-
+                elif msg == "!tg" :
+                  setTG(10)
+                  await client.send_message(message.channel, "Ok, je me tais pour 10 minutes")
 
 
 

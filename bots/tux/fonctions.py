@@ -58,3 +58,24 @@ async def actu():
           for i in rss['entries'] :
               if timegm(i['published_parsed']) > dernier :
                   await client.send_message(channel, i['link'])
+
+def isTG():
+    with open("/tmp/tgTux", "r") as tgFile:
+        curTime = int(time.time())
+        fileTime = tgFile.readline()
+        if(match(r"^[0-9]+$", fileTime)):
+            isTg = curTime < int(fileTime)
+            if(not isTg):
+                setTG(0);
+                return False
+            return True
+        else:
+            return False
+
+def setTG(val):
+    with open("/tmp/tgTux", "w") as tgFile:
+        if(isinstance(val, int) and val > 0):
+            tgFile.write(str(int(time.time()) + (val * 60)))
+
+
+
