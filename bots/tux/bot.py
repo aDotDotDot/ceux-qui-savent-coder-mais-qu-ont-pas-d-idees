@@ -19,7 +19,7 @@ import unicodedata
 from hashlib import sha256
 import qrcode
 from variables import fast, aide_fast, caracteres, feeds, pendu, ytCategories
-from fonctions import joliStr, getUrl
+from fonctions import joliStr, getUrl, isTG, setTG
 
 commandes = {"blague": "`!blague` pour avoir une blague au hasard parmis celles que je connais et `!blague add <Votre blague.>` pour m'en apprendre une nouvelle (mettre un `|` pour que je fasse une pause au moment de raconter votre blague)",
              "citation": "`!citation` pour avoir une citation au hasard parmis celles que je connais et `!citation add <Votre citation.>` pour m'en apprendre une nouvelle",
